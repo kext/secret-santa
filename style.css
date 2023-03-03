@@ -1,0 +1,169 @@
+@font-face {
+  font-family: fira-code-vf;
+  src: url(fira-code-vf.woff2);
+}
+:root {
+  --bg: #fff;
+  --button: #eee;
+  --hover: #ddd;
+  --active: #ccc;
+  --border: #ccc;
+  --lighttext: #666;
+  --text: #333;
+  --primary: #36a;
+  --error: #c12;
+}
+html.dark {
+  --bg: #333;
+  --button: #444;
+  --hover: #555;
+  --active: #666;
+  --border: #666;
+  --lighttext: #aaa;
+  --text: #ccc;
+  --primary: #09d;
+  --error: #c12;
+}
+@media (prefers-color-scheme: dark) {
+  html:not(.light) {
+    --bg: #333;
+    --button: #444;
+    --hover: #555;
+    --active: #666;
+    --border: #666;
+    --lighttext: #aaa;
+    --text: #ccc;
+    --primary: #09d;
+    --error: #c12;
+  }
+}
+html {
+  font-family: fira-code-vf, 'Fira Code', 'Courier New', Courier, monospace;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+body {
+  margin: 1rem;
+}
+h1 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+}
+h2 {
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem;
+}
+p {
+  margin: 0 0 0.5rem;
+}
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.row {
+  display: flex;
+  margin: 0 0 0 -0.5rem;
+}
+.input {
+  position: relative;
+  padding: 0.5rem 0 0;
+  flex-grow: 1;
+  width: 0;
+  margin: 0 0 0 0.5rem;
+}
+.input > label {
+  z-index: 2;
+  position: absolute;
+  transform: translate(0.5rem, -0.5rem);
+  font-size: 0.7rem;
+  color: var(--lighttext);
+  background: var(--bg);
+  padding: 0 0.2rem;
+  line-height: 1rem;
+  white-space: nowrap;
+}
+.input > input, .input > textarea {
+  z-index: 1;
+  font: inherit;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  outline: none;
+  padding: 0.3rem;
+  color: var(--text);
+  width: 100%;
+  box-sizing: border-box;
+}
+.input.error > input, .input.error > input:focus, .input.error > textarea, .input.error > textarea:focus {
+  border-color: var(--error);
+}
+.input.error > label {
+  color: var(--error);
+}
+.input > input:focus, .input > textarea:focus {
+  border-color: var(--primary);
+}
+.input > textarea {
+  word-wrap: break-word;
+  position: absolute;
+  resize: none;
+  left: 0;
+  right: 0;
+  top: 0.5rem;
+  height: calc(100% - 0.5rem);
+}
+.input > .sizer {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  border: 1px solid var(--border);
+  outline: none;
+  padding: 0.3rem;
+  box-sizing: border-box;
+  width: 100%;
+  visibility: hidden;
+}
+input[type=button], button {
+  font: inherit;
+  border: 1px solid var(--border);
+  outline: none;
+  padding: 0.3rem;
+  background: var(--button);
+  color: var(--text);
+  min-width: 2rem;
+}
+input[type=button]:hover, button:hover {
+  background: var(--hover);
+}
+input[type=button]:active, button:active {
+  background: var(--active);
+}
+.row > button {
+  margin: 0.5rem 0 0 0.5rem;
+}
+.form {
+  margin: 0 auto 1rem;
+}
+#app {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+.loading #app {
+  display: none;
+}
+.dark-mode-switch {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.dark-mode-switch svg {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  color: var(--lighttext);
+}
+.dark-mode-switch svg:hover {
+  color: var(--text);
+}
